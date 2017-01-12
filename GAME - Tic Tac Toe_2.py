@@ -9,7 +9,6 @@ human2 = "";
 x=0;
 def board(MAX):
     
-    print "tttt";
     print "\n\t" , MAX[0], " |" ,MAX[1], "|" ,MAX[2];
     print "\t___|___|___";
     print "\t" , MAX[3], " |" ,MAX[4], "|" ,MAX[5];
@@ -17,12 +16,20 @@ def board(MAX):
     print "\t" , MAX[6], " |" ,MAX[7], "|" ,MAX[8];
     print "\t   |   |   ";
 
+def init_board(MAX):
+    
+    print "\n\t" , "0", " |" ,"1", "|" ,"2";
+    print "\t___|___|___";
+    print "\t" , "3", " |" ,"4", "|" ,"5";
+    print "\t___|___|___";
+    print "\t" , "6", " |" ,"7", "|" ,"8";
+    print "\t   |   |   ";
 
 def  go_h1():
     flag = 0;
-    pos  = int( raw_input( "PLAYER 1 : Enter the position : "));
+    pos  = int( raw_input( "\nPLAYER 1 : Enter the position : "));
     while (pos < 0 or pos > 8)or MAX[pos] !=EMPTY and flag == 0 :
-        pos  = int( raw_input( " Invalid position..Enter the position again : "));
+        pos  = int( raw_input( "\nInvalid position..Enter the position again : "));
     for j in range(squares) :
         if pos == j:
             MAX[j] = X;
@@ -32,9 +39,9 @@ def  go_h1():
 
 def go_h2():
     flag = 0;
-    pos  = int( raw_input( "PLAYER 2 : Enter the position : "));
+    pos  = int( raw_input( "\nPLAYER 2 : Enter the position : "));
     while (pos < 0 or pos > 8) or MAX[pos] !=EMPTY and flag == 0:
-        pos  = int( raw_input( " Position Occupied..Enter the position again : "));
+        pos  = int( raw_input( "\nPosition Occupied..Enter the position again : "));
     for j in range(squares) :
         if pos == j:
             MAX[j] = O;                
@@ -54,17 +61,17 @@ def win(MAX , str):
     
     for k in (way):
         if MAX[k[0]] == MAX[k[1]] == MAX[k[2]] != EMPTY and str1 == str:            
-            print "human 1 winss..!!!";
+            print "\nPlayer 1 wins..!!!";
             global x
             x = 1;
             return x;
         elif MAX[k[0]] == MAX[k[1]] == MAX[k[2]] != EMPTY and str1 != str:            
-            print "human 2 winss..!!!";
+            print "\nPlayer 2 wins..!!!";
             global x
             x = 1;
             return x;
         elif EMPTY not in MAX :
-            print "ITS A TIE..!!!";
+            print "\nITS A TIE..!!!";
             global x
             x = 1;
             return x; 
@@ -73,15 +80,14 @@ def win(MAX , str):
 
 ans = raw_input("You want to go first? Press (y/n)");
 while ans[0].lower() != 'y' and ans[0].lower() != 'n' :
-    ans = raw_input("Invalid value..Press (y/n)");
-print ans.lower();
+    ans = raw_input("\nInvalid value..Press (y/n)");
 for i in range(squares):
     MAX.append(EMPTY);
+init_board(MAX);
 if ans[0] == 'y' or ans[0] == 'Y':
     human1 = X;
     human2 = O;
     while x !=1 and EMPTY in MAX:
-        print "x = " , x;
         go_h1();        
         board(MAX);
         win(MAX , "human1");
