@@ -1,5 +1,6 @@
  1. TO OPEN A FILE
 	vi <filename>.<extension>
- 2. TO OPEN A FILE IN NANO EDITOR 
+ 
+2. TO OPEN A FILE IN NANO EDITOR 
 	nano <filename>.<extension>
 

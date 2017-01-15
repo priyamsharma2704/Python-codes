@@ -1,0 +1,17 @@
+(lp1
+S'bmw'
+p2
+aS'audi'
+p3
+aS'lambo'
+p4
+a.(lp1
+S'Sedan'
+p2
+aS'Hatchback'
+p3
+aS'Sports'
+p4
+aS'SUV'
+p5
+a.
